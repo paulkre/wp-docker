@@ -1,6 +1,6 @@
 {
   "name": "wp-docker",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "index.js",
   "author": "Paul Kretschel <paul.kretschel@icloud.com>",
   "license": "MIT",
