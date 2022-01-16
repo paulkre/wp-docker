@@ -1,4 +1,4 @@
-name: Run Test
+name: Release Docker image
 
 on:
   create:
