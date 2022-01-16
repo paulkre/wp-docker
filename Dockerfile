@@ -3,7 +3,7 @@ ARG PHP_VERSION
 
 FROM wordpress:cli-php${PHP_VERSION:-8.0} AS cli
 
-FROM wordpress:${WORDPRESS_VERSION:-5.8.1}-php${PHP_VERSION:-8.0}-apache
+FROM wordpress:${WORDPRESS_VERSION:-5.8.3}-php${PHP_VERSION:-8.0}-apache
 
 # Install PDO MySQL extension (required by plugin "MailPoet")
 RUN docker-php-ext-install pdo_mysql
