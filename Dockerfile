@@ -24,5 +24,6 @@ RUN wp --version
 # Add PHP configuration
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
-# Remove default plugins
-RUN rm -rf /usr/src/wordpress/wp-content/plugins/*
+# Modify default WordPress installation
+RUN cd /usr/src/wordpress && rm -rf wp-config-docker.php wp-content/plugins/*
+COPY --chown=www-data:www-data wp-config.php /usr/src/wordpress/wp-config.php

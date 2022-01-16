@@ -6,10 +6,7 @@ services:
     ports:
       - 8080:80
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: secret
-      WORDPRESS_DB_NAME: wp
+      DATABASE_URL: mysql://root:secret@db/wp
     volumes:
       - ./php.ini:/usr/local/etc/php/conf.d/php.ini
     depends_on:
