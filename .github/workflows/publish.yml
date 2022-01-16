@@ -1,0 +1,50 @@
+name: Build Docker image and publish it to Docker Hub
+
+on:
+  workflow_call:
+    inputs:
+      VERSION:
+        type: string
+        required: true
+      PHP_VERSION:
+        type: string
+        required: true
+      WP_VERSION:
+        type: string
+        required: true
+      DOCKERHUB_REPO:
+        type: string
+        required: true
+      DOCKERHUB_USER:
+        type: string
+        required: true
+    secrets:
+      DOCKERHUB_TOKEN:
+        required: true
+
+jobs:
+  build-and-publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ inputs.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ inputs.DOCKERHUB_REPO }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.VERSION }}-wp${{ inputs.WP_VERSION }}-php${{ inputs.PHP_VERSION }}
+            ${{ inputs.DOCKERHUB_REPO }}:latest
+          labels: ${{ steps.meta.outputs.labels }}

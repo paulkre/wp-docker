@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  wp:
+    build: .
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: secret
+      WORDPRESS_DB_NAME: wp
+    volumes:
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini
+    depends_on:
+      - db
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: secret
+      MARIADB_DATABASE: wp
