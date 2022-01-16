@@ -9,7 +9,7 @@ FROM wordpress:${WORDPRESS_VERSION:-5.8.1}-php${PHP_VERSION:-8.0}-apache
 RUN docker-php-ext-install pdo_mysql
 
 # Add sudo in order to run wp-cli as the www-data user 
-RUN apt-get update && apt-get install -y sudo wget
+RUN apt-get update && apt-get install -y sudo wget less
 
 # Cleanup
 RUN apt-get clean
