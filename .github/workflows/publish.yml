@@ -44,6 +44,9 @@ jobs:
         with:
           context: .
           push: true
+          build-args: |
+            WP_VERSION=${{ inputs.WP_VERSION }}
+            PHP_VERSION=${{ inputs.PHP_VERSION }}
           tags: |
             ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.VERSION }}-wp${{ inputs.WP_VERSION }}-php${{ inputs.PHP_VERSION }}
             ${{ inputs.DOCKERHUB_REPO }}:latest
