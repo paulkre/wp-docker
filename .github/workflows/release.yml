@@ -7,12 +7,12 @@ on:
 
 jobs:
   release-5-8:
-    name: Release WP 5.8.3 with PHP 8.0
+    name: Release WP 5.9.0 with PHP 8.0
     uses: paulkre/wp-docker/.github/workflows/publish.yml@main
     with:
       VERSION: ${{ github.event.ref }}
       PHP_VERSION: "8.0"
-      WP_VERSION: "5.8.3"
+      WP_VERSION: "5.9.0"
       DOCKERHUB_REPO: paulkre/wp
       DOCKERHUB_USER: paulkre
     secrets:
