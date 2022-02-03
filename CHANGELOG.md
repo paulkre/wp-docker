@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/paulkre/wp-docker/compare/v1.1.0...v1.1.1) (2022-02-03)
+
+
+### Bug Fixes
+
+* Add release of image tag without package version ([09b3097](https://github.com/paulkre/wp-docker/commit/09b30976362f3aa2ebb1f61abd60286ee44669c2))
+* Define build args correctly in GH workflow ([f7add0a](https://github.com/paulkre/wp-docker/commit/f7add0a6c879d61a617d7029052ae3f4e1894a8b))
+* Update WordPress (v5.9.0) ([34d8d65](https://github.com/paulkre/wp-docker/commit/34d8d6501a7d2959216eb1b87dd51cbf0e18dff5))
+
 ## [1.1.0](https://github.com/paulkre/wp-docker/compare/v1.0.0...v1.1.0) (2022-01-16)
 
 
